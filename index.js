@@ -7,7 +7,7 @@ appDiv.innerHTML = `<h1>JS Algo | Substring Palindrome</h1><hr><br>`;
 
 let str = "MALAYALAM";
 appDiv.innerHTML += `<strong>Input String:</strong> ${str}`;
-let palindromeStrings = [];
+let palindromeStrings = {};
 
 function checkPalindromeStrings() {
   for (let i=0; i<str.length; i++) {
@@ -18,13 +18,13 @@ function checkPalindromeStrings() {
       const reverseStr = subStr.split("").reverse().join("");
       console.log("Inner String: "+subStr);
       if (subStr === reverseStr) {
-        palindromeStrings.push(subStr);
+        palindromeStrings[subStr] = subStr;
       }
     }
   }
 }
 
 checkPalindromeStrings();
-console.log(palindromeStrings.toString());
+console.log(Object.values(palindromeStrings));
 appDiv.innerHTML += `<br><br><strong>Palindrome Strings:</strong>`;
-appDiv.innerHTML += `<br> ${palindromeStrings.toString().split(',').join('<br />')}`;
+appDiv.innerHTML += `<br> ${Object.values(palindromeStrings).toString().split(',').join('<br />')}`;
